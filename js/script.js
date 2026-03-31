@@ -46,8 +46,8 @@ function describePage() {
   speakMood(mood);
 };
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "m") {
-    describePage();
-  }
-});
+// document.addEventListener("keydown", (e) => {
+//   if (e.key === "m") {
+//     describePage();
+//   }
+// });
