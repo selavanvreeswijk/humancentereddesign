@@ -1,21 +1,180 @@
+<!-- ---------------------------------------- Eerste prototype ---------------------------------------- -->
+
+<!-- <!DOCTYPE html>
+<html lang="nl">
+
+  <head> 
+    <meta charset="UTF-8">
+    <title>Essentie website</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+    <main>
+        <h1>Testpagina</h1>
+
+        <p>This is a shop where you can buy products on sale.</p> 
+        <p>Big SALE! Buy now! Shop our products!</p>
+        <p>Warning! Error occurred. System failure.</p> 
+    </main>
+
+    <button class="describe-btn">Omschrijf pagina</button>
+
+    <script src="./js/script.js"></script>
+  </body> 
+
+</html> -->
+
+<!-- ---------------------------------------- Tweede prototype ---------------------------------------- -->
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Essentie website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Krant — AI in de zorg</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<main>
-    <h1>Testpagina</h1>
-    <!-- <p>This is a shop where you can buy products on sale.</p> -->
-    <p>Big SALE! Buy now! Shop our products!</p>
-     <!-- <p>Warning! Error occurred. System failure.</p> -->
-</main>
+  <!-- NAVIGATIE -->
+  <header>
+    <div class="nav-inner">
+      <div class="logo">De Krant</div>
+      <nav>
+        <a href="#">Nieuws</a>
+        <a href="#">Technologie</a>
+        <a href="#">Gezondheid</a>
+        <a href="#">Over ons</a>
+      </nav>
+    </div>
+  </header>
 
-  <button class="describe-btn">Omschrijf pagina</button>
+  <!-- ARTIKEL -->
+  <main>
+    <div class="container">
 
-  <script src="./js/script.js"></script>
+      <div class="article-meta">
+        <span class="category">Technologie</span>
+        <span class="date">12 april 2026</span>
+        <span class="author">Door: Lena Huisman</span>
+      </div>
+
+      <h1>Kunstmatige intelligentie verandert de gezondheidszorg — maar voor wie?</h1>
+
+      <p class="intro">
+        AI kan artsen helpen, diagnoses versnellen en patiënten beter informeren.
+        Maar de nieuwe technologie dreigt ook de kloof te vergroten tussen wie wél
+        en wie niet toegang heeft tot goede zorg.
+      </p>
+
+      <img class="article-img" src="https://placehold.co/800x400?text=Foto:+AI+in+het+ziekenhuis" alt="AI-systeem analyseert een röntgenfoto in een ziekenhuis">
+
+      <p>
+        In het Amsterdams Medisch Centrum loopt een stille revolutie. Terwijl radiologen
+        vroeger uren besteedden aan het doorspitten van duizenden scans, signaleert een
+        algoritme nu in seconden afwijkingen die het menselijk oog makkelijk mist.
+        "We vinden tumoren die we anders pas maanden later hadden gezien," vertelt
+        radioloog dr. Mark Schippers.
+      </p>
+
+      <p>
+        Maar buiten de muren van grote academische ziekenhuizen ziet de werkelijkheid
+        er anders uit. Huisartspraktijken in krimpgebieden en GGZ-instellingen met
+        wachtlijsten van anderhalf jaar hebben weinig aan een technologie die tienduizenden
+        euro's kost om te implementeren.
+      </p>
+
+      <h2>Van diagnose tot behandelplan</h2>
+
+      <p>
+        De toepassingen van AI in de zorg zijn inmiddels breed. Chatbots triageren
+        patiënten voordat ze een arts zien. Taalmodellen schrijven ontslagbrieven.
+        Beeldherkenning detecteert huidkanker op foto's van smartphones.
+      </p>
+
+      <blockquote>
+        "AI is geen wondermiddel. Het is een gereedschap — en zoals elk gereedschap
+        werkt het beter als je weet hoe je het moet gebruiken."
+        <cite>— Prof. dr. Sarah van den Berg, hoogleraar medische AI, TU Delft</cite>
+      </blockquote>
+
+      <p>
+        Het gevaar is dat AI-systemen worden getraind op data van grote, rijke
+        ziekenhuizen in stedelijke gebieden. Die data weerspiegelt niet de diversiteit
+        van de bevolking. Een algoritme dat is getraind op patiënten uit Amsterdam-Zuid
+        presteert mogelijk slechter bij patiënten met een andere etnische achtergrond.
+      </p>
+
+      <h2>Toegankelijkheid als kernvraag</h2>
+
+      <p>
+        Zorgethici benadrukken dat de introductie van AI in de zorg een politieke
+        keuze is, geen technische noodzaak. "We kunnen beslissen dat AI alleen beschikbaar
+        komt als het voor iedereen beschikbaar is," zegt dr. Fatima Osman van het
+        Rathenau Instituut.
+      </p>
+
+      <p>
+        Nederland loopt in Europa voor op het gebied van digitale zorginfrastructuur,
+        maar ook hier zijn de verschillen groot. AI dreigt geografische ongelijkheid
+        te versterken als er geen beleid tegenover staat.
+      </p>
+
+    </div>
+  </main>
+
+  <!-- WEBSENSE EXTENSIE KNOP -->
+  <button id="ext-btn" onclick="openPopup()" title="WebSense openen">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="7"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      <line x1="11" y1="8" x2="11" y2="14"/>
+      <line x1="8" y1="11" x2="14" y2="11"/>
+    </svg>
+  </button>
+
+  <!-- WEBSENSE POPUP -->
+  <div id="popup-backdrop" onclick="closePopup()"></div>
+
+  <div id="popup">
+    <div class="popup-header">
+      <div class="popup-title">
+        <span class="popup-dot"></span>
+        WebSense
+      </div>
+      <button class="popup-close" onclick="closePopup()">✕</button>
+    </div>
+
+    <div class="popup-tabs">
+      <button class="tab active" data-tab="quick" onclick="switchTab('quick')">⚡ Quick scan</button>
+      <button class="tab" data-tab="detail" onclick="switchTab('detail')">🔍 Detail</button>
+      <button class="tab" data-tab="sfeer" onclick="switchTab('sfeer')">✦ Sfeer</button>
+    </div>
+
+    <div class="popup-body">
+      <div class="panel active" id="panel-quick">
+        <div class="loading" id="loading-quick"><div class="spinner"></div> Analyseren…</div>
+        <div class="result" id="result-quick"></div>
+      </div>
+      <div class="panel" id="panel-detail">
+        <div class="loading" id="loading-detail"><div class="spinner"></div> Analyseren…</div>
+        <div class="result" id="result-detail"></div>
+      </div>
+      <div class="panel" id="panel-sfeer">
+        <div class="loading" id="loading-sfeer"><div class="spinner"></div> Analyseren…</div>
+        <div class="result" id="result-sfeer"></div>
+      </div>
+    </div>
+
+    <div class="popup-footer">
+      <span id="status-text">Bezig…</span>
+      <button class="rescan-btn" onclick="runScan()">↺ Opnieuw</button>
+    </div>
+  </div>
+
+  <script src="./js/websense.js"></script>
+
 </body>
 </html>

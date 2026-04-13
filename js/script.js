@@ -1,3 +1,5 @@
+// ---------------------------------------- Eerste prototype ---------------------------------------- 
+
 const clickButton = document.querySelector('.describe-btn');
 
 clickButton.addEventListener('click', describePage);
