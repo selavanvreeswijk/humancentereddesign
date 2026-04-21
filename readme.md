@@ -71,20 +71,26 @@ Deze week was een bewogen week met tweede paasdag, een begrafenis en daarna ziek
 ### Maandag
 Vandaag zaten we in de Medialounge. Ik heb mijn derde prototype uitgewerkt: een testpagina gefaked in html en een test pop-up gemaakt. Hier had ik het afgelopen weekend ook al een beetje aan gewerkt. Morgen wil ik dit gaan testen met Ihab en ik wil vooral kijken of dit nuttig voor hem kan zijn en vooral ook op de manier hoe ik het in gedachten had. Zou er ook iets geoptimaliseerd kunnen worden? 
 
+### Dinsdag
+Vanochtend heb ik met Ihab mijn tweede test uitgevoerd. Hij was deze keer enthousiaster over mijn prototype. Dit waren de dingen die eruit kwamen en die ik wil gaan aanpassen: 
+- De knop om het af te sluiten was niet gelabeld, het kruisje
+- De emoji's vóór de knop titels mogen weg 
+- 'Quick Scan' en 'Detail' mogen samengevoegd kunnen worden, nu beetje overbodig. Hij wilde sfeer juist wel apart hebben 
+- Kijken of ik de stem Frank kan aanpassen
+- Testen met verschillende pagina's 
+
+Vanmiddag en volgende week wil ik met de bovenstaande punten aan de slag voor mijn derde prototype. 
+
+### Vrijdag
+Deze week hadden we geen voortgangsgesprek vanwege de Smashing Conference. 
+
+### Weekverslag week 10
+Deze week heb ik mijn tweede prototype gemaakt, getest en die test ging gelukkig beter dan vorige week. Ik heb een aantal punten als feedback gekregen en daar wil ik aan gaan werken voor volgende week voor mijn volgende prototype. Het voornaamste is dat ik ai eraan wil gaan koppelen om het werkend te laten maken.
+
 ![screenshot huidig werk](./images/prototype-2.2.png)
 ![screenshot huidig werk](./images/prototype-2.3.png)
 ![screenshot huidig werk](./images/prototype-2.4.png)
 ![screenshot huidig werk](./images/prototype-2.5.png)
-
-### Dinsdag
-
-
-### Vrijdag
-
-
-### Weekverslag week 10
-
-
 
 </details>
 
@@ -93,7 +99,11 @@ Vandaag zaten we in de Medialounge. Ik heb mijn derde prototype uitgewerkt: een 
 ## Week 11
 
 ### Maandag
-
+In de ochtend hebben we een interessant college van Vasilis gehad over exclusive design. Hierna ben ik de hele dag aan de slag gegaan met de feedback van vorige week verwerken: 
+- Een aria-label voor het kruisje 
+- Twee nieuwe testpagina's aangemaakt voor het contrast per pagina (dit duurde het langst)
+- Een keuze aan de stem toegevoegd zodat Ihab kan kiezen met welke stem hij de Quick Scan wilt uitvoeren
+- Tot slot heb ik de test voor morgen voorbereid
 
 ### Dinsdag
 
@@ -105,8 +115,6 @@ Vandaag zaten we in de Medialounge. Ik heb mijn derde prototype uitgewerkt: een 
 
 
 ### Weekverslag week 11
-
-![screenshot huidig werk](/images/final6.png)
 
 </details>
 

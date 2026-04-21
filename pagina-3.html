@@ -1,0 +1,247 @@
+<!-- ---------------------------------------- Derde prototype — Kookplezier ---------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kookplezier — Spaghetti carbonara</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #18181b;
+      color: #e4e4e7;
+      font-size: 18px;
+    }
+
+    header {
+      border-bottom: 1px solid #3f3f46;
+      background: #18181b;
+    }
+
+    .logo {
+      color: #e4e4e7;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    nav a {
+      color: #a1a1aa;
+    }
+
+    nav a:hover {
+      color: #e4e4e7;
+      text-decoration: underline;
+    }
+
+    .category {
+      background: #16a34a;
+      color: #fff;
+    }
+
+    .article-meta {
+      color: #a1a1aa;
+    }
+
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #f4f4f5;
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-family: 'Open Sans', sans-serif;
+      color: #f4f4f5;
+      font-size: 1.2rem;
+    }
+
+    .intro {
+      border-left-color: #16a34a;
+      color: #d4d4d8;
+      font-style: normal;
+    }
+
+    p {
+      color: #d4d4d8;
+      line-height: 1.8;
+    }
+
+    blockquote {
+      border-left-color: #16a34a;
+      color: #a1a1aa;
+    }
+
+    blockquote cite {
+      color: #71717a;
+    }
+
+    ul, ol {
+      margin: 0 0 20px 0;
+      padding-left: 24px;
+    }
+
+    li {
+      color: #d4d4d8;
+      line-height: 1.8;
+      margin-bottom: 6px;
+    }
+
+    .container {
+      max-width: 44vw;
+    }
+
+    a:focus,
+    button:focus {
+      outline: 2px solid #16a34a;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <div class="logo">Kookplezier</div>
+      <nav aria-label="Hoofdnavigatie">
+        <a href="./index.html">Ai in de zorg</a>
+        <a href="./pagina-2.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- RECEPT -->
+  <main>
+    <div class="container">
+
+      <div class="article-meta">
+        <span class="category">Pasta</span>
+        <span class="date">15 april 2026</span>
+        <span class="author">Door: Marco Visser</span>
+      </div>
+
+      <h1>Spaghetti carbonara — de echte versie</h1>
+
+      <p class="intro">
+        Geen room, geen knoflook, geen onzin. Alleen eieren, guanciale, pecorino en
+        een goede techniek. Dit is carbonara zoals het hoort.
+      </p>
+
+      <img class="article-img" src="https://placehold.co/800x400/18181b/16a34a?text=Foto:+Spaghetti+carbonara" alt="Bord spaghetti carbonara met geraspte kaas en zwarte peper">
+
+      <p>
+        Carbonara is een van die gerechten die iedereen denkt te kennen maar bijna
+        niemand goed maakt. Het geheim zit niet in een speciaal ingrediënt — het
+        zit in de temperatuur. Te heet en je hebt roerei. Te koud en de saus
+        wordt niet romig. Het is een kwestie van gevoel.
+      </p>
+
+      <h2>Ingrediënten (voor 2 personen)</h2>
+
+      <ul>
+        <li>200 g spaghetti</li>
+        <li>100 g guanciale (of pancetta als je het niet kunt vinden)</li>
+        <li>3 eidooiers + 1 heel ei</li>
+        <li>60 g pecorino romano, fijn geraspt</li>
+        <li>Zwarte peper, vers gemalen</li>
+        <li>Zout (voor het kookwater)</li>
+      </ul>
+
+      <h2>Bereiding</h2>
+
+      <ol>
+        <li>Kook de spaghetti in ruim gezouten water, twee minuten korter dan de verpakking aangeeft.</li>
+        <li>Snijd de guanciale in blokjes en bak op middelhoog vuur tot het knapperig is. Zet het vuur uit.</li>
+        <li>Klop de eidooiers, het hele ei en de pecorino door elkaar. Voeg royaal zwarte peper toe.</li>
+        <li>Schep de pasta direct uit het water bij de guanciale in de pan. Voeg een scheutje kookwater toe.</li>
+        <li>Haal de pan van het vuur. Voeg het eimengsel toe en roer snel tot een romige saus. Serveer meteen.</li>
+      </ol>
+
+      <blockquote>
+        "Carbonara heeft geen room nodig. Het ei en de kaas maken de saus — als
+        je de temperatuur goed hebt."
+        <cite>— Marco</cite>
+      </blockquote>
+
+      <p>
+        Het kookwater is je geheime wapen. Het zetmeel in het water helpt de saus
+        binden en zorgt dat alles samenhangend is. Begin met een klein scheutje
+        en voeg meer toe als de saus te dik wordt.
+      </p>
+
+    </div>
+  </main>
+
+  <button id="ext-btn" onclick="openPopup()" aria-label="Quick Scan openen" title="Quick Scan openen">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      <line x1="11" y1="8" x2="11" y2="14"/>
+      <line x1="8" y1="11" x2="14" y2="11"/>
+    </svg>
+  </button>
+
+  <div id="popup-backdrop" onclick="closePopup()"></div>
+
+  <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-naam">
+    <div class="popup-header">
+      <div class="popup-title" id="popup-naam">
+        <span class="popup-dot" aria-hidden="true"></span>
+        Quick Scan
+      </div>
+      <button class="popup-close" onclick="closePopup()" aria-label="Sluit popup">✕</button>
+    </div>
+
+    <div class="popup-tabs" role="tablist">
+      <button class="tab active" data-tab="quick" onclick="switchTab('quick')" role="tab" aria-selected="true">Detail</button>
+      <button class="tab" data-tab="sfeer" onclick="switchTab('sfeer')" role="tab" aria-selected="false">Sfeer</button>
+    </div>
+
+    <div class="popup-body">
+      <div class="panel active" id="panel-quick" role="tabpanel">
+        <div class="loading" id="loading-quick"><div class="spinner" aria-hidden="true"></div> Analyseren…</div>
+        <div class="result" id="result-quick"></div>
+      </div>
+      <div class="panel" id="panel-sfeer" role="tabpanel">
+        <div class="loading" id="loading-sfeer"><div class="spinner" aria-hidden="true"></div> Analyseren…</div>
+        <div class="result" id="result-sfeer"></div>
+      </div>
+    </div>
+
+    <div class="popup-stem">
+      <label for="stem-select">Stem:</label>
+      <select id="stem-select" aria-label="Kies een stem voor het voorlezen"></select>
+    </div>
+
+    <div class="popup-footer">
+      <span id="status-text">Bezig…</span>
+      <button class="rescan-btn" onclick="runScan()">↺ Opnieuw</button>
+    </div>
+  </div>
+
+  <script>
+    window.paginaDemoTeksten = {
+      quick: {
+        essentie: "Dit is een receptenpagina van Kookplezier met een recept voor spaghetti carbonara. Schrijver Marco Visser legt uit hoe je het gerecht op de traditionele Italiaanse manier maakt.",
+        samenvatting: "Het recept is bedoeld voor twee personen en beschrijft vijf stappen. De nadruk ligt op techniek: de temperatuur is cruciaal om roerei te voorkomen. Er is ook een lijst met zes ingrediënten.",
+        hoofdlinks: ["Testpagina 1", "Testpagina 2"],
+        afbeeldingen: "Er is één afbeelding van een bord spaghetti carbonara met geraspte kaas en zwarte peper.",
+        toegankelijkheid: "De pagina gebruikt een geordende lijst voor de stappen en een ongeordende lijst voor ingrediënten. Navigatie en popup zijn voorzien van aria-labels."
+      },
+      sfeer: {
+        stemming: "Zelfverzekerd en to-the-point — Marco weet wat hij doet en deelt dat zonder omwegen.",
+        kleurgevoel: "Donker met groene accenten. Rustig en gefocust, als een professionele keuken 's avonds laat.",
+        doelgroep: "Mensen die serieus koken en niet blij worden van shortcuts",
+        beleving: "Je voelt je aangespoord om het meteen te proberen."
+      }
+    };
+  </script>
+  <script src="./js/quickscan.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!-- ---------------------------------------- Derde prototype — Blog van Sam ---------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog van Sam — Zomerse dag in Haarlem</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #faf7f2;
+      color: #2c1f14;
+    }
+
+    header {
+      background: #2c1f14;
+      border-bottom: none;
+      padding: 16px 0;
+    }
+
+    .logo {
+      color: #faf7f2;
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+    }
+
+    nav a {
+      color: #d4b896;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .category {
+      background: #b94a36;
+    }
+
+    .intro {
+      border-left-color: #b94a36;
+      color: #5a3e2b;
+    }
+
+    h2 {
+      color: #4a2e1a;
+    }
+
+    blockquote {
+      border-left-color: #b94a36;
+      color: #5a3e2b;
+    }
+
+    .container {
+      max-width: 60vw;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <div class="logo">Blog van Sam</div>
+      <nav aria-label="Hoofdnavigatie">
+        <a href="./index.html">Ai in de zorg</a>
+        <a href="./pagina-3.html">Kookplezier</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ARTIKEL -->
+  <main>
+    <div class="container">
+
+      <div class="article-meta">
+        <span class="category">Dagboek</span>
+        <span class="date">18 april 2026</span>
+        <span class="author">Door: Sam Dekker</span>
+      </div>
+
+      <h1>Die ene perfecte zaterdag in Haarlem</h1>
+
+      <p class="intro">
+        Geen agenda, geen verplichtingen — gewoon fietsen, koffie drinken en
+        kijken waar de dag naartoe gaat. Zo begon mijn favoriete dag van dit jaar.
+      </p>
+
+      <img class="article-img" src="https://placehold.co/800x400/faf7f2/b94a36?text=Foto:+Haarlem+in+de+zon" alt="Zonnige straat in het centrum van Haarlem met fietsen en terrasjes">
+
+      <p>
+        Het was een van die aprilzaterdagen waarop de lucht nog fris is maar de
+        zon al echt schijnt. Ik pakte mijn fiets, stopte mijn jas in mijn tas
+        en reed zonder plan het centrum in. Bij de Grote Markt was het al druk —
+        kraamhouders, mensen met koffie, een straatmuzikant die vrolijk wat gitaar speelde.
+      </p>
+
+      <p>
+        Bij mijn favoriete koffietentje aan de Smedestraat nam ik een cappuccino
+        en een stuk appeltaart. De eigenaar kende me al: "De gebruikelijke?" Dat
+        soort kleine dingen maken een buurt tot thuis.
+      </p>
+
+      <h2>De Haarlemse markt</h2>
+
+      <p>
+        Even later liep ik langs de kramen op de Botermarkt. Verse tulpen voor
+        twee euro per bos, boerenkaas waar je een gratis hapje van krijgt,
+        en een tweedehandsboekenkraam waar ik een oud fotoboek over de stad vond.
+      </p>
+
+      <blockquote>
+        "Haarlem is klein genoeg om te kennen en groot genoeg om te blijven ontdekken."
+        <cite>— Opgeschreven op een tegeltje in een cadeauwinkel, maar het klopt echt</cite>
+      </blockquote>
+
+      <p>
+        Halverwege de middag fietste ik naar de Kennemerduinen. Het pad door de duinen
+        was zacht van het zand, en het rook naar dennen en zee. Op de top van een duin
+        zat ik een tijdje gewoon te kijken — over de stad, over het land, naar de
+        streep blauw aan de horizon.
+      </p>
+
+      <h2>Avond in de stad</h2>
+
+      <p>
+        Terug in de stad sprak ik af met Mira voor een borrel. We deelden een plankje
+        met kaas en olijven op een terras aan de Nieuwe Gracht. Het gesprek ging over
+        van alles en niets, zoals goede gesprekken gaan.
+      </p>
+
+      <p>
+        Op de fiets naar huis dacht ik: dit zijn de dagen die je bijhoudt. Niet omdat
+        er iets bijzonders is gebeurd — maar omdat alles gewoon heel erg goed was.
+      </p>
+
+    </div>
+  </main>
+
+  <button id="ext-btn" onclick="openPopup()" aria-label="WebSense openen" title="WebSense openen">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      <line x1="11" y1="8" x2="11" y2="14"/>
+      <line x1="8" y1="11" x2="14" y2="11"/>
+    </svg>
+  </button>
+
+  <div id="popup-backdrop" onclick="closePopup()"></div>
+
+  <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-naam">
+    <div class="popup-header">
+      <div class="popup-title" id="popup-naam">
+        <span class="popup-dot" aria-hidden="true"></span>
+        Quick Scan
+      </div>
+      <button class="popup-close" onclick="closePopup()" aria-label="Sluit popup">✕</button>
+    </div>
+
+    <div class="popup-tabs" role="tablist">
+      <button class="tab active" data-tab="quick" onclick="switchTab('quick')" role="tab" aria-selected="true">Detail</button>
+      <button class="tab" data-tab="sfeer" onclick="switchTab('sfeer')" role="tab" aria-selected="false">Sfeer</button>
+    </div>
+
+    <div class="popup-body">
+      <div class="panel active" id="panel-quick" role="tabpanel">
+        <div class="loading" id="loading-quick"><div class="spinner" aria-hidden="true"></div> Analyseren…</div>
+        <div class="result" id="result-quick"></div>
+      </div>
+      <div class="panel" id="panel-sfeer" role="tabpanel">
+        <div class="loading" id="loading-sfeer"><div class="spinner" aria-hidden="true"></div> Analyseren…</div>
+        <div class="result" id="result-sfeer"></div>
+      </div>
+    </div>
+
+    <div class="popup-stem">
+      <label for="stem-select">Stem:</label>
+      <select id="stem-select" aria-label="Kies een stem voor het voorlezen"></select>
+    </div>
+
+    <div class="popup-footer">
+      <span id="status-text">Bezig…</span>
+      <button class="rescan-btn" onclick="runScan()">↺ Opnieuw</button>
+    </div>
+  </div>
+
+  <script>
+    window.paginaDemoTeksten = {
+      quick: {
+        essentie: "Dit is een persoonlijk blog van Sam Dekker over een dag uit in Haarlem. Sam schrijft over koffie, de markt, de duinen en een avondje borrelen met een vriendin.",
+        samenvatting: "Een luchtig en warm dagboekbericht. Geen groot nieuws — gewoon een fijne zaterdag die Sam wil onthouden. De schrijfstijl is persoonlijk en hartelijk.",
+        hoofdlinks: ["Testpagina 1", "Testpagina 3"],
+        afbeeldingen: "Er is één afbeelding met een beschrijvende alt-tekst: een zonnige straat in Haarlem met fietsen en terrasjes.",
+        toegankelijkheid: "De pagina heeft een duidelijke koppenstructuur. Navigatie en popup zijn voorzien van aria-labels."
+      },
+      sfeer: {
+        stemming: "Licht, vrolijk en persoonlijk — het voelt als een brief van een vriend die een fijne dag beschrijft.",
+        kleurgevoel: "Warm beige met roestbruine accenten. Gezellig en huiselijk, als een kop koffie in de ochtend.",
+        doelgroep: "Mensen die van persoonlijke verhalen en slow living houden",
+        beleving: "Je voelt je welkom, alsof je samen met Sam op dat terras zit."
+      }
+    };
+  </script>
+  <script src="./js/quickscan.js"></script>
+
+</body>
+</html>
