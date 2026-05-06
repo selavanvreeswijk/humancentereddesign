@@ -1,4 +1,4 @@
-<!-- ---------------------------------------- Derde prototype — Kookplezier ---------------------------------------- -->
+<!-- ---------------------------------------- Kookplezier ---------------------------------------- -->
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -7,104 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kookplezier — Spaghetti carbonara</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/pagina-3.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      background: #18181b;
-      color: #e4e4e7;
-      font-size: 18px;
-    }
-
-    header {
-      border-bottom: 1px solid #3f3f46;
-      background: #18181b;
-    }
-
-    .logo {
-      color: #e4e4e7;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    nav a {
-      color: #a1a1aa;
-    }
-
-    nav a:hover {
-      color: #e4e4e7;
-      text-decoration: underline;
-    }
-
-    .category {
-      background: #16a34a;
-      color: #fff;
-    }
-
-    .article-meta {
-      color: #a1a1aa;
-    }
-
-    h1 {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: #f4f4f5;
-      line-height: 1.3;
-    }
-
-    h2 {
-      font-family: 'Open Sans', sans-serif;
-      color: #f4f4f5;
-      font-size: 1.2rem;
-    }
-
-    .intro {
-      border-left-color: #16a34a;
-      color: #d4d4d8;
-      font-style: normal;
-    }
-
-    p {
-      color: #d4d4d8;
-      line-height: 1.8;
-    }
-
-    blockquote {
-      border-left-color: #16a34a;
-      color: #a1a1aa;
-    }
-
-    blockquote cite {
-      color: #71717a;
-    }
-
-    ul, ol {
-      margin: 0 0 20px 0;
-      padding-left: 24px;
-    }
-
-    li {
-      color: #d4d4d8;
-      line-height: 1.8;
-      margin-bottom: 6px;
-    }
-
-    .container {
-      max-width: 44vw;
-    }
-
-    a:focus,
-    button:focus {
-      outline: 2px solid #16a34a;
-      outline-offset: 3px;
-    }
-  </style>
 </head>
 <body>
-
   <header>
     <div class="nav-inner">
       <div class="logo">Kookplezier</div>
@@ -177,7 +83,8 @@
     </div>
   </main>
 
-  <button id="ext-btn" onclick="openPopup()" aria-label="Quick Scan openen" title="Quick Scan openen">
+  <!-- Quick Scan knop -->
+  <button id="ext-btn" aria-label="Quick Scan openen" title="Quick Scan openen">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="11" cy="11" r="7"/>
       <line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -186,20 +93,18 @@
     </svg>
   </button>
 
-  <div id="popup-backdrop" onclick="closePopup()"></div>
-
-  <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-naam">
+  <!-- Quick Scan popup als dialog voor correcte focusbeheer -->
+  <dialog id="popup" aria-labelledby="popup-naam">
     <div class="popup-header">
       <div class="popup-title" id="popup-naam">
-        <span class="popup-dot" aria-hidden="true"></span>
         Quick Scan
       </div>
-      <button class="popup-close" onclick="closePopup()" aria-label="Sluit popup">✕</button>
+      <button class="popup-close" aria-label="Sluit Quick Scan">X</button>
     </div>
 
     <div class="popup-tabs" role="tablist">
-      <button class="tab active" data-tab="quick" onclick="switchTab('quick')" role="tab" aria-selected="true">Detail</button>
-      <button class="tab" data-tab="sfeer" onclick="switchTab('sfeer')" role="tab" aria-selected="false">Sfeer</button>
+      <button class="tab active" data-tab="quick" role="tab" aria-selected="true">Detail</button>
+      <button class="tab" data-tab="sfeer" role="tab" aria-selected="false">Sfeer</button>
     </div>
 
     <div class="popup-body">
@@ -220,28 +125,11 @@
 
     <div class="popup-footer">
       <span id="status-text">Bezig…</span>
-      <button class="rescan-btn" onclick="runScan()">↺ Opnieuw</button>
+      <button class="rescan-btn">Opnieuw</button>
     </div>
-  </div>
+  </dialog>
 
-  <script>
-    window.paginaDemoTeksten = {
-      quick: {
-        essentie: "Dit is een receptenpagina van Kookplezier met een recept voor spaghetti carbonara. Schrijver Marco Visser legt uit hoe je het gerecht op de traditionele Italiaanse manier maakt.",
-        samenvatting: "Het recept is bedoeld voor twee personen en beschrijft vijf stappen. De nadruk ligt op techniek: de temperatuur is cruciaal om roerei te voorkomen. Er is ook een lijst met zes ingrediënten.",
-        hoofdlinks: ["Testpagina 1", "Testpagina 2"],
-        afbeeldingen: "Er is één afbeelding van een bord spaghetti carbonara met geraspte kaas en zwarte peper.",
-        toegankelijkheid: "De pagina gebruikt een geordende lijst voor de stappen en een ongeordende lijst voor ingrediënten. Navigatie en popup zijn voorzien van aria-labels."
-      },
-      sfeer: {
-        stemming: "Zelfverzekerd en to-the-point — Marco weet wat hij doet en deelt dat zonder omwegen.",
-        kleurgevoel: "Donker met groene accenten. Rustig en gefocust, als een professionele keuken 's avonds laat.",
-        doelgroep: "Mensen die serieus koken en niet blij worden van shortcuts",
-        beleving: "Je voelt je aangespoord om het meteen te proberen."
-      }
-    };
-  </script>
+  <script src="./js/content-pagina3.js"></script>
   <script src="./js/quickscan.js"></script>
-
 </body>
 </html>

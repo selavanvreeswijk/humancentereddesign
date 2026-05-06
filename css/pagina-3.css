@@ -1,0 +1,99 @@
+/* Kookplezier pagina */
+
+body{
+  font-size: 18px;
+  color: #e4e4e7;
+
+  background: #18181b;
+}
+
+header{
+  background: #18181b;
+  border-bottom: 1px solid #3f3f46;
+}
+
+.logo{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #e4e4e7;
+}
+
+nav a{
+  color: #a1a1aa;
+}
+
+nav a:hover{
+  color: #e4e4e7;
+  text-decoration: underline;
+}
+
+.category{
+  color: #fff;
+
+  background: #16a34a;
+}
+
+.article-meta{
+  color: #a1a1aa;
+}
+
+h1{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2em;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #f4f4f5;
+}
+
+h2{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  color: #f4f4f5;
+}
+
+.intro{
+  font-style: normal;
+  color: #d4d4d8;
+
+  border-left-color: #16a34a;
+}
+
+p{
+  line-height: 1.8;
+  color: #d4d4d8;
+}
+
+blockquote{
+  color: #a1a1aa;
+
+  border-left-color: #16a34a;
+}
+
+blockquote cite{
+  color: #71717a;
+}
+
+ul,
+ol{
+  margin: 0 0 20px 0;
+  padding-left: 24px;
+}
+
+li{
+  line-height: 1.8;
+  color: #d4d4d8;
+
+  margin-bottom: 6px;
+}
+
+.container{
+  max-width: 44vw;
+}
+
+a:focus,
+button:focus{
+  outline: 2px solid #16a34a;
+  outline-offset: 3px;
+}

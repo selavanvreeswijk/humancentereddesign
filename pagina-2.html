@@ -1,4 +1,4 @@
-<!-- ---------------------------------------- Derde prototype — Blog van Sam ---------------------------------------- -->
+<!-- ---------------------------------------- Blog van Sam ---------------------------------------- -->
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -7,57 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog van Sam — Zomerse dag in Haarlem</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/pagina-2.css">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      background: #faf7f2;
-      color: #2c1f14;
-    }
-
-    header {
-      background: #2c1f14;
-      border-bottom: none;
-      padding: 16px 0;
-    }
-
-    .logo {
-      color: #faf7f2;
-      font-family: 'Merriweather', serif;
-      font-size: 1.6rem;
-    }
-
-    nav a {
-      color: #d4b896;
-    }
-
-    nav a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-
-    .category {
-      background: #b94a36;
-    }
-
-    .intro {
-      border-left-color: #b94a36;
-      color: #5a3e2b;
-    }
-
-    h2 {
-      color: #4a2e1a;
-    }
-
-    blockquote {
-      border-left-color: #b94a36;
-      color: #5a3e2b;
-    }
-
-    .container {
-      max-width: 60vw;
-    }
-  </style>
 </head>
 <body>
 
@@ -139,7 +90,8 @@
     </div>
   </main>
 
-  <button id="ext-btn" onclick="openPopup()" aria-label="WebSense openen" title="WebSense openen">
+  <!-- Quick Scan knop -->
+  <button id="ext-btn" aria-label="Quick Scan openen" title="Quick Scan openen">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="11" cy="11" r="7"/>
       <line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -148,20 +100,18 @@
     </svg>
   </button>
 
-  <div id="popup-backdrop" onclick="closePopup()"></div>
-
-  <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-naam">
+  <!-- Quick Scan popup als dialog voor correcte focusbeheer -->
+  <dialog id="popup" aria-labelledby="popup-naam">
     <div class="popup-header">
       <div class="popup-title" id="popup-naam">
-        <span class="popup-dot" aria-hidden="true"></span>
         Quick Scan
       </div>
-      <button class="popup-close" onclick="closePopup()" aria-label="Sluit popup">✕</button>
+      <button class="popup-close" aria-label="Sluit Quick Scan">X</button>
     </div>
 
     <div class="popup-tabs" role="tablist">
-      <button class="tab active" data-tab="quick" onclick="switchTab('quick')" role="tab" aria-selected="true">Detail</button>
-      <button class="tab" data-tab="sfeer" onclick="switchTab('sfeer')" role="tab" aria-selected="false">Sfeer</button>
+      <button class="tab active" data-tab="quick" role="tab" aria-selected="true">Detail</button>
+      <button class="tab" data-tab="sfeer" role="tab" aria-selected="false">Sfeer</button>
     </div>
 
     <div class="popup-body">
@@ -182,28 +132,11 @@
 
     <div class="popup-footer">
       <span id="status-text">Bezig…</span>
-      <button class="rescan-btn" onclick="runScan()">↺ Opnieuw</button>
+      <button class="rescan-btn">Opnieuw</button>
     </div>
-  </div>
+  </dialog>
 
-  <script>
-    window.paginaDemoTeksten = {
-      quick: {
-        essentie: "Dit is een persoonlijk blog van Sam Dekker over een dag uit in Haarlem. Sam schrijft over koffie, de markt, de duinen en een avondje borrelen met een vriendin.",
-        samenvatting: "Een luchtig en warm dagboekbericht. Geen groot nieuws — gewoon een fijne zaterdag die Sam wil onthouden. De schrijfstijl is persoonlijk en hartelijk.",
-        hoofdlinks: ["Testpagina 1", "Testpagina 3"],
-        afbeeldingen: "Er is één afbeelding met een beschrijvende alt-tekst: een zonnige straat in Haarlem met fietsen en terrasjes.",
-        toegankelijkheid: "De pagina heeft een duidelijke koppenstructuur. Navigatie en popup zijn voorzien van aria-labels."
-      },
-      sfeer: {
-        stemming: "Licht, vrolijk en persoonlijk — het voelt als een brief van een vriend die een fijne dag beschrijft.",
-        kleurgevoel: "Warm beige met roestbruine accenten. Gezellig en huiselijk, als een kop koffie in de ochtend.",
-        doelgroep: "Mensen die van persoonlijke verhalen en slow living houden",
-        beleving: "Je voelt je welkom, alsof je samen met Sam op dat terras zit."
-      }
-    };
-  </script>
+  <script src="./js/content-pagina2.js"></script>
   <script src="./js/quickscan.js"></script>
-
 </body>
 </html>

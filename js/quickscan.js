@@ -2,7 +2,7 @@
 // DEMO-TEKSTEN
 // =====================
 // Standaard teksten voor de nieuwspagina (index.html).
-// Elke pagina kan zijn eigen teksten instellen via window.paginaDemoTeksten
+// Elke pagina stelt zijn eigen teksten in via window.paginaDemoTeksten
 // vóór dit script wordt geladen.
 
 const defaultDemoTeksten = {
@@ -24,42 +24,53 @@ const defaultDemoTeksten = {
 
 const demoTeksten = window.paginaDemoTeksten || defaultDemoTeksten;
 
-
 // =====================
 // POPUP OPENEN / SLUITEN
 // =====================
+// Exclusive design — Study situation:
+// Ihab gebruikt een screenreader. Door showModal() te gebruiken gaat de
+// focus automatisch naar het dialoogvenster zodat de screenreader
+// de inhoud direct voorleest zonder extra handelingen.
 
-let alGescand = false;
+const popup = document.getElementById('popup');
 
-function openPopup() {
-  document.getElementById('popup-backdrop').style.display = 'block';
-  document.getElementById('popup').style.display = 'block';
+function openPopup(){
+  popup.showModal();
   if (!alGescand) runScan();
 }
 
-function closePopup() {
-  document.getElementById('popup-backdrop').style.display = 'none';
-  document.getElementById('popup').style.display = 'none';
-  stopSpreken();
+function closePopup(){
+  popup.close();
 }
 
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closePopup();
+// Sluit popup als er op de backdrop (buiten het venster) wordt geklikt
+// e.target === popup betekent: klik op de dialog zelf, niet op een child element
+popup.addEventListener('click', function(e){
+  if (e.target === popup) closePopup();
 });
-
 
 // =====================
 // STEMMEN LADEN
 // =====================
-// Vult het dropdown-menu in de popup met alle beschikbare stemmen van het systeem.
-// Ihab kan hier een andere stem kiezen dan de standaard (bijv. Frank op macOS).
+// Exclusive design — Prioritise identity:
+// Ihab kan zelf een stem kiezen die bij hem past, in plaats van
+// de standaard systeemvoice die hij misschien niet prettig vindt.
+// Dubbele stemmen (zelfde voiceURI) worden eenmalig getoond.
 
-function laadStemmen() {
+function laadStemmen(){
   const select = document.getElementById('stem-select');
   if (!select) return;
 
-  const stemmen = speechSynthesis.getVoices();
-  if (stemmen.length === 0) return; // nog niet geladen, wacht op onvoiceschanged
+  const alleStemmen = speechSynthesis.getVoices();
+  if (alleStemmen.length === 0) return;
+
+  // Verwijder dubbele stemmen op basis van voiceURI
+  const gezienURIs = new Set();
+  const stemmen = alleStemmen.filter(stem => {
+    if (gezienURIs.has(stem.voiceURI)) return false;
+    gezienURIs.add(stem.voiceURI);
+    return true;
+  });
 
   select.innerHTML = '';
 
@@ -70,59 +81,44 @@ function laadStemmen() {
     select.appendChild(optie);
   });
 
-  // Herstel de eerder gekozen stem uit localStorage
   const opgeslagen = localStorage.getItem('quickscan-stem');
   if (opgeslagen !== null && select.options[opgeslagen]) {
     select.value = opgeslagen;
   }
 }
 
-// Chrome laadt stemmen asynchroon, vandaar onvoiceschanged
+// Chrome laadt stemmen asynchroon
 speechSynthesis.onvoiceschanged = laadStemmen;
-laadStemmen(); // werkt direct in Firefox en Safari
-
-// Sla de keuze op als Ihab een andere stem kiest
-document.addEventListener('change', function(e) {
-  if (e.target.id === 'stem-select') {
-    localStorage.setItem('quickscan-stem', e.target.value);
-  }
-});
-
+laadStemmen();
 
 // =====================
 // TABS WISSELEN
 // =====================
 
-function switchTab(tab) {
-  // Zet alle tabs op inactief (ook voor screenreaders via aria-selected)
+function switchTab(tab){
   document.querySelectorAll('.tab').forEach(t => {
     t.classList.remove('active');
     t.setAttribute('aria-selected', 'false');
   });
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
 
-  // Zet de gewenste tab op actief
   const actieveTab = document.querySelector(`.tab[data-tab="${tab}"]`);
   actieveTab.classList.add('active');
   actieveTab.setAttribute('aria-selected', 'true');
-
   document.getElementById(`panel-${tab}`).classList.add('active');
-
-  stopSpreken();
 }
-
 
 // =====================
 // SCAN UITVOEREN
 // =====================
 
+let alGescand = false;
 let scanResultaten = {};
 
-function runScan() {
+function runScan(){
   alGescand = true;
   scanResultaten = {};
 
-  // reset beide panelen
   ['quick', 'sfeer'].forEach(tab => {
     document.getElementById(`loading-${tab}`).style.display = 'flex';
     const r = document.getElementById(`result-${tab}`);
@@ -139,16 +135,15 @@ function runScan() {
   setStatus('Scan voltooid');
 }
 
-
 // --- Detail tab ---
 
-function toonQuick(d) {
+function toonQuick(d){
   document.getElementById('loading-quick').style.display = 'none';
   const el = document.getElementById('result-quick');
   el.style.display = 'block';
 
   const links = (d.hoofdlinks || [])
-    .map(l => `<span class="chip detail">${veilig(l)}</span>`)
+    .map(l => `<span class="chip quick">${veilig(l)}</span>`)
     .join('');
 
   el.innerHTML = `
@@ -172,14 +167,12 @@ function toonQuick(d) {
       <div class="result-label quick">Toegankelijkheid</div>
       <div class="result-text">${veilig(d.toegankelijkheid || '')}</div>
     </div>
-    <button class="speak-btn" id="spk-quick" onclick="toggleSpreken('quick')">▶ Lees voor</button>
   `;
 }
 
-
 // --- Sfeer tab ---
 
-function toonSfeer(d) {
+function toonSfeer(d){
   document.getElementById('loading-sfeer').style.display = 'none';
   const el = document.getElementById('result-sfeer');
   el.style.display = 'block';
@@ -200,79 +193,46 @@ function toonSfeer(d) {
     <div class="chips">
       <span class="chip sfeer">${veilig(d.doelgroep || '')}</span>
     </div>
-    <button class="speak-btn" id="spk-sfeer" onclick="toggleSpreken('sfeer')">▶ Lees voor</button>
   `;
 }
 
-
 // =====================
-// VOORLEZEN
+// EVENT LISTENERS
 // =====================
+// Alle click-handlers staan hier, niet als onclick-attributen in de HTML.
 
-let huidigeSpeech = null;
+document.addEventListener('DOMContentLoaded', function(){
+  // Open knop
+  document.getElementById('ext-btn').addEventListener('click', openPopup);
 
-function toggleSpreken(tab) {
-  const knop = document.getElementById(`spk-${tab}`);
+  // Sluit knop
+  document.querySelector('.popup-close').addEventListener('click', closePopup);
 
-  // als er al iets speelt, stop dan
-  if (huidigeSpeech) {
-    stopSpreken();
-    if (knop) { knop.textContent = '▶ Lees voor'; knop.classList.remove('actief'); }
-    return;
-  }
+  // Opnieuw scannen
+  document.querySelector('.rescan-btn').addEventListener('click', runScan);
 
-  // bouw de spreektekst
-  let tekst = '';
-  try {
-    const data = JSON.parse(scanResultaten[tab]);
-    tekst = Object.values(data).flat().join('. ');
-  } catch(e) {
-    tekst = scanResultaten[tab] || '';
-  }
+  // Tabs
+  document.querySelectorAll('.tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      switchTab(this.dataset.tab);
+    });
+  });
 
-  if (!tekst) return;
-
-  const utterance = new SpeechSynthesisUtterance(tekst);
-  utterance.lang  = 'nl-NL';
-  utterance.rate  = tab === 'sfeer' ? 0.88 : 0.96;
-  utterance.pitch = tab === 'sfeer' ? 1.1  : 1.0;
-
-  // Gebruik de stem die Ihab heeft geselecteerd in het dropdown-menu
-  const stemSelect = document.getElementById('stem-select');
-  const stemmen = speechSynthesis.getVoices();
-  const gekozenIndex = stemSelect ? parseInt(stemSelect.value) : 0;
-  if (stemmen[gekozenIndex]) {
-    utterance.voice = stemmen[gekozenIndex];
-  }
-
-  if (knop) { knop.textContent = '■ Stop'; knop.classList.add('actief'); }
-
-  utterance.onend = function() {
-    huidigeSpeech = null;
-    if (knop) { knop.textContent = '▶ Lees voor'; knop.classList.remove('actief'); }
-  };
-
-  huidigeSpeech = utterance;
-  speechSynthesis.speak(utterance);
-}
-
-function stopSpreken() {
-  if (huidigeSpeech) {
-    speechSynthesis.cancel();
-    huidigeSpeech = null;
-  }
-}
-
+  // Stem opslaan
+  document.getElementById('stem-select').addEventListener('change', function(){
+    localStorage.setItem('quickscan-stem', this.value);
+  });
+});
 
 // =====================
 // HULPFUNCTIES
 // =====================
 
-function setStatus(tekst) {
+function setStatus(tekst){
   document.getElementById('status-text').textContent = tekst;
 }
 
-function veilig(str) {
+function veilig(str){
   return String(str)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')

@@ -1,0 +1,52 @@
+/* Blog van Sam pagina */
+
+body{
+  color: #2c1f14;
+
+  background: #faf7f2;
+}
+
+header{
+  border-bottom: none;
+  background: #2c1f14;
+  padding: 16px 0;
+}
+
+.logo{
+  font-family: 'Merriweather', serif;
+  font-size: 1.6em;
+  color: #faf7f2;
+}
+
+nav a{
+  color: #d4b896;
+}
+
+nav a:hover{
+  color: #fff;
+  text-decoration: underline;
+}
+
+.category{
+  background: #b94a36;
+}
+
+.intro{
+  color: #5a3e2b;
+
+  border-left-color: #b94a36;
+}
+
+h2{
+  color: #4a2e1a;
+}
+
+blockquote{
+  color: #5a3e2b;
+
+  border-left-color: #b94a36;
+}
+
+.container{
+  max-width: 60vw;
+}
